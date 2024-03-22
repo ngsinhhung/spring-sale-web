@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="org.pojo.Product">
+        <table name="product" schema="saledb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="name">
+                <column name="name" length="50"/>
+            </basic>
+            <basic name="description">
+                <column name="description" nullable="false"/>
+            </basic>
+            <basic name="price">
+                <column name="price" nullable="false" precision="10"/>
+            </basic>
+            <basic name="manufacturer">
+                <column name="manufacturer" nullable="false" length="50"/>
+            </basic>
+            <basic name="image">
+                <column name="image" nullable="false" length="200"/>
+            </basic>
+            <basic name="createdDate">
+                <column name="created_date" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="active">
+                <column name="active" nullable="false" precision="1"/>
+            </basic>
+            <basic name="categoryId">
+                <column name="category_id" precision="-1"/>
+            </basic>
+            <many-to-one name="categoryByCategoryId" optional="true" target-entity="org.pojo.Category">
+                <join-column name="category_id" referenced-column-name="id"/>
+            </many-to-one>
+            <one-to-many name="commentsById" mapped-by="productByProductId" target-entity="org.pojo.Comment"/>
+            <one-to-many name="orderDetailsById" mapped-by="productByProductId" target-entity="org.pojo.OrderDetail"/>
+            <one-to-many name="prodTagsById" mapped-by="productByProductId" target-entity="org.pojo.ProdTag"/>
+        </attributes>
+    </entity>
+</entity-mappings>

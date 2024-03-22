@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="e672213c-8f53-489a-b3d4-c187e058b614" name="saledb@localhost Mapping">
+      <data-sources db="2851b7e8-a0d1-4597-bcba-d84a96fc2374" />
+      <scope>
+        <node kind="schema" qname="saledb" />
+      </scope>
+    </mapping>
+  </component>
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="org.pojo.User">
+        <table name="user" schema="saledb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="firstName">
+                <column name="first_name" length="45"/>
+            </basic>
+            <basic name="lastName">
+                <column name="last_name" length="45"/>
+            </basic>
+            <basic name="email">
+                <column name="email" length="45"/>
+            </basic>
+            <basic name="phone">
+                <column name="phone" length="45"/>
+            </basic>
+            <basic name="username">
+                <column name="username" length="45"/>
+            </basic>
+            <basic name="password">
+                <column name="password" length="100"/>
+            </basic>
+            <basic name="active">
+                <column name="active" nullable="false" precision="1"/>
+            </basic>
+            <basic name="userRole">
+                <column name="user_role" length="10"/>
+            </basic>
+            <basic name="avatar">
+                <column name="avatar" nullable="false" length="100"/>
+            </basic>
+            <one-to-many name="commentsById" mapped-by="userByUserId" target-entity="org.pojo.Comment"/>
+            <one-to-many name="saleOrdersById" mapped-by="userByUserId" target-entity="org.pojo.SaleOrder"/>
+        </attributes>
+    </entity>
+</entity-mappings>
